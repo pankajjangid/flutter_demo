@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/widgets/TitleText.dart';
 
-import './utils/WidgetsUtils.dart';
 import './utils/Validation.dart';
+import './utils/WidgetsUtils.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -38,25 +38,32 @@ class _LoginPageState extends State<LoginPage> {
                   TitleText("Login"),
                 ],
               ),
-              WidgetsUtils.container(WidgetsUtils.textinput(userNamecontroller,
-                  "Enter email id.", TextInputType.emailAddress, false)),
-              WidgetsUtils.container(WidgetsUtils.textinput(passwordcontroller,
-                  "Enter password.", TextInputType.text, true)),
-              RaisedButton(
-                onPressed: () {
-                  debugPrint("Email id : ${userNamecontroller.text}");
-                  debugPrint("Pasword : ${passwordcontroller.text}");
-
-                  Validation.isValidEmail(context, userNamecontroller.text, "Please enter email", "Please enter vail email");
-                },
-                color: Colors.amber,
-                child: Text("Submit"),
-              )
+              WidgetsUtils.getTextFieldContainer(WidgetsUtils.getTextField(
+                  userNamecontroller,
+                  "Enter email id.",
+                  TextInputType.emailAddress,
+                  false,
+                  Icon(Icons.email))),
+              WidgetsUtils.getTextFieldContainer(WidgetsUtils.getTextField(
+                  passwordcontroller,
+                  "Enter password.",
+                  TextInputType.text,
+                  true,
+                  Icon(Icons.lock))),
+              WidgetsUtils.getRaisedButton(WidgetsUtils.getTextOfRaisedButton("Submit"), onButtonPress)
+                
             ],
           ),
         ),
       ),
     );
   }
-}
 
+  onButtonPress(){
+    debugPrint("Email id : ${userNamecontroller.text}");
+    debugPrint("Pasword : ${passwordcontroller.text}");
+/*
+    Validation.isValidEmail(context, userNamecontroller.text,
+        "Please enter email", "Please enter vail email");*/
+  }
+}

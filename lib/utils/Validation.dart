@@ -20,11 +20,25 @@ class Validation {
     }
 
   }
+/*
 
   static showSnackBar(BuildContext context, String msg) {
     Scaffold.of(context).showSnackBar(SnackBar(
       content: Text(msg),
       duration: Duration(seconds: 3),
     ));
+  }
+*/
+
+  static showSnackBar(BuildContext context, String msg) {
+    /*Fluttertoast.showToast(
+        msg: msg,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIos: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0
+    );*/
   }
 }
