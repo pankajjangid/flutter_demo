@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/utils/CustomDialog.dart';
 import 'package:flutter_demo/widgets/TitleText.dart';
 
-import './utils/Validation.dart';
 import './utils/WidgetsUtils.dart';
 
 class LoginPage extends StatefulWidget {
@@ -14,6 +14,10 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   TextEditingController userNamecontroller = TextEditingController();
   TextEditingController passwordcontroller = TextEditingController();
+
+  VoidCallback doSomething() {
+    debugPrint("doSomething");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,8 +54,8 @@ class _LoginPageState extends State<LoginPage> {
                   TextInputType.text,
                   true,
                   Icon(Icons.lock))),
-              WidgetsUtils.getRaisedButton(WidgetsUtils.getTextOfRaisedButton("Submit"), onButtonPress)
-                
+              WidgetsUtils.getRaisedButton(
+                  WidgetsUtils.getTextOfRaisedButton("Submit"), onButtonPress)
             ],
           ),
         ),
@@ -59,9 +63,27 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  onButtonPress(){
+  onButtonPress() {
     debugPrint("Email id : ${userNamecontroller.text}");
     debugPrint("Pasword : ${passwordcontroller.text}");
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) =>
+          CustomDialog(
+            title: "Success",
+            description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            buttonText: "Okay",
+            image: Image.asset('images/flutterwithlogo.png'),
+            callback: doSomething,
+          ),
+    );
+
+    /* void doSomething(int i){
+
+    }*/
+
 /*
     Validation.isValidEmail(context, userNamecontroller.text,
         "Please enter email", "Please enter vail email");*/
