@@ -32,7 +32,7 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   navigationPage() {
-    Navigator.of(context).pushReplacementNamed("/Login");
+    Navigator.of(context).pushReplacementNamed("/Home");
   }
 
   @override
