@@ -2,6 +2,13 @@ import 'package:flutter/material.dart';
 
 class WidgetsUtils {
 
+
+  static AppBar getAppbar(String title) =>
+      AppBar(
+        title: Text(title),
+      );
+
+
   static Widget getTextFieldContainer(Widget widget) =>
       Container(
         margin: EdgeInsets.all(5),

@@ -4,6 +4,7 @@ import 'package:flutter_demo/ui/HomeScreen.dart';
 
 void main() {
   runApp(new MaterialApp(
+    debugShowCheckedModeBanner: false,
     home: new SplashPage(),
     routes: <String, WidgetBuilder>{
       //'/Login': (BuildContext context) => new LoginPage()
